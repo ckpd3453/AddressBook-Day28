@@ -1,38 +1,90 @@
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Scanner;
 
 public class AddressBookMain {
 
 	/**
-	 * Procedure:-
-	 * ===========
-	 * @param args
-	 *1. Created a method to read the csv file given
-	 *2. called the same method and pssing a file path as an argument
+	 * create method choose() to select any of the option
 	 */
-	public static void main(String[] args) {
-		
-		readCSVfileUsingScanner("C:\\Users\\SHREEKANT\\Desktop\\CSV&JSON\\CSV_Book1.csv");
-		
-	}
-	
-	// Created a method to read the csv file given
-	public static void readCSVfileUsingScanner(String filePath) {
-		
-			try {
-				Scanner	scanner = new Scanner(new File(filePath)); //Creating an object of Scanner class to scan a file given
-			
-			while(scanner.hasNext()) //iterating to print the information given in the file
-			{
-				System.out.println("User Data: "+ scanner.next().toString());
-			}
-			scanner.close();
-			}
-			//Exception Handling as if file not exist
-			catch (FileNotFoundException e) {
-				System.out.println("File not found...");
+	public void choose() {
+		MultipleAddressBook obj1 = new MultipleAddressBook();
+		AddressBookServices obj2 = new AddressBookServices();
+		while (true) {
+			System.out.println(
+					"Enter \n 1. To add The new AddressBook\n 2. To do AddressBook functions\n 3. To delete the AddressBook\n "
+							+ "4. To Print the AddressBook\n 5. To Print the contacts in AddressBook\n 6. To show search options\n 0. to exit");
+			Scanner scanner = new Scanner(System.in);
+			int choice = scanner.nextInt();
+			switch (choice) {
+			case 1:
+				obj1.addAddressBook();
+				break;
+			case 2:
+				obj1.addressBookFunctions();
+				break;
+			case 3:
+				obj1.deleteBook();
+				break;
+			case 4:
+				obj1.printBook();
+				break;
+			case 5:
+				obj1.printContactsInBook();
+				break;
+			case 6:
+				obj2.viewByOptions();
+				break;
+			case 0:
+				System.exit(0);
+				break;
+			default:
+				System.out.println("Enter the wrong input");
 			}
 		}
+	}
+
+	/**
+	 * Main method for manipulation AddressBookCollection
+	 * 
+	 * @param args - Default Java param (Not used)
+	 */
+	public static void main(String[] args) {
+		System.out.println("Welcome To Address Book Program");
+		Scanner Scan = new Scanner(System.in);
+
+		/**
+		 * try and catch block will be uses to handle exception
+		 */
+		try {
+			InputStream inputStream = new FileInputStream("C:\\Users\\SHREEKANT\\Desktop\\day27.txt");
+			int byteData = inputStream.read();
+			if (byteData != -1) {
+				System.out.println(byteData);
+			}
+		} catch (IOException e2) {
+
+		}
+
+		File file = new File("C:\\Users\\SHREEKANT\\Desktop\\day27.txt");
+		try {
+			boolean isFileCreated = file.createNewFile();
+			if (isFileCreated) {
+				System.out.println("File Created successfully!!1");
+			} else {
+				System.out.println("Something went wrong or file already exist");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		AddressBookMain addressBookMain = new AddressBookMain();
+
+		/**
+		 * calling choose() method
+		 */
+		addressBookMain.choose();
+	}
 
 }
