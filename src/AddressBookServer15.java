@@ -1,5 +1,5 @@
 
-public class AddressBookServer {
+public class AddressBookServer15 {
 
 	/**
 	 * private variables can only be accessed within the same class (an outside
@@ -15,7 +15,7 @@ public class AddressBookServer {
 	private long mobileNumber;
 	private String emailId;
 
-	public AddressBookServer() {
+	public AddressBookServer15() {
 
 	}
 
@@ -32,7 +32,7 @@ public class AddressBookServer {
 	 * @param mobileNumber
 	 * @param emailId
 	 */
-	public AddressBookServer(String firstName, String lastName, String address, String city, String state, int zipCode,
+	public AddressBookServer15(String firstName, String lastName, String address, String city, String state, int zipCode,
 			long mobileNumber, String emailId) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -45,8 +45,13 @@ public class AddressBookServer {
 	}
 
 /*
- * sttter and getters
+ * Setter and getters
  */
+
+	public AddressBookServer15(String string, String string2, String string3, String string4, String string5,
+			String string6, String string7, String string8) {
+		// TODO Auto-generated constructor stub
+	}
 
 	public String getFirstName() {
 		return firstName;

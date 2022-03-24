@@ -4,14 +4,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
 
-public class AddressBookMain {
+public class AddressBookMain15 {
 
 	/**
 	 * create method choose() to select any of the option
 	 */
 	public void choose() {
-		MultipleAddressBook obj1 = new MultipleAddressBook();
-		AddressBookServices obj2 = new AddressBookServices();
+		MultipleAddressBook15 obj1 = new MultipleAddressBook15();
+		AddressBookServices15 obj2 = new AddressBookServices15();
 		while (true) {
 			System.out.println(
 					"Enter \n 1. To add The new AddressBook\n 2. To do AddressBook functions\n 3. To delete the AddressBook\n "
@@ -79,7 +79,7 @@ public class AddressBookMain {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		AddressBookMain addressBookMain = new AddressBookMain();
+		AddressBookMain15 addressBookMain = new AddressBookMain15();
 
 		/**
 		 * calling choose() method

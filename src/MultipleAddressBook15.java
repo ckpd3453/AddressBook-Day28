@@ -2,12 +2,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class MultipleAddressBook {
+public class MultipleAddressBook15 {
 	/**
 	 * Java HashMap class implements the Map interface which allows us to store key
 	 * and value pair, where keys should be unique.
 	 */
-	Map<String, AddressBookServices> addressBookMap = new HashMap<>();
+	Map<String, AddressBookServices15> addressBookMap = new HashMap<>();
 
 	/**
 	 * created method addAddressBook() to add a new values in addressBook
@@ -20,7 +20,7 @@ public class MultipleAddressBook {
 			System.out.println("Address book with this name exists, Enter new name.");
 			addAddressBook();
 		} else {
-			AddressBookServices addressBook = new AddressBookServices();
+			AddressBookServices15 addressBook = new AddressBookServices15();
 			addressBookMap.put(bookName, addressBook);
 			System.out.println("press 1 if you want to add another book or press any key to exit.");
 			int newBook = scanner.nextInt();
@@ -82,7 +82,7 @@ public class MultipleAddressBook {
 	 */
 	public void printBook() {
 		System.out.println("These are AddressBooks in present program.");
-		for (Map.Entry<String, AddressBookServices> entry : addressBookMap.entrySet()) {
+		for (Map.Entry<String, AddressBookServices15> entry : addressBookMap.entrySet()) {
 			System.out.println(entry.getKey() + "[]");
 		}
 	}
@@ -91,7 +91,7 @@ public class MultipleAddressBook {
 	 * create method printContactsInBook() that prints the contacts ina a book
 	 */
 	public void printContactsInBook() {
-		for (Map.Entry<String, AddressBookServices> entry : addressBookMap.entrySet()) {
+		for (Map.Entry<String, AddressBookServices15> entry : addressBookMap.entrySet()) {
 			System.out.println("The contacts in the Book of < " + entry.getKey() + " > are!...");
 			System.out.println(entry.getValue().contactDetailsList);
 		}

@@ -4,8 +4,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
-
-public class CSVPerson {
+import com.google.gson.Gson;
+public class CSVPerson15 {
 	/*
 	 * created method to to read csv file
 	 */
@@ -23,7 +23,12 @@ public class CSVPerson {
 			 * creating a loop to pop out every string values
 			 */
 			while (sc.hasNext()) {
-				System.out.println("User data  :" + sc.next().toString());
+				String line = sc.next().toString();
+				//System.out.println("User data  :" + line);
+				
+				String[] userData = line.split(",");
+				User user = new User(userData[0],userData[1],userData[2],userData[3],userData[4],userData[5],userData[6],userData[7]);
+				System.out.println("User json: "+ new Gson().toJson(user));
 			}
 			sc.close();
 		} catch (FileNotFoundException e) {
@@ -71,26 +76,26 @@ public class CSVPerson {
 			String h = sc.nextLine();
 
 			printWriter.print(a);
-			printWriter.print(",");
+
 			printWriter.print(b);
-			printWriter.print(",");
+
 			printWriter.print(c);
-			printWriter.print(",");
+
 			printWriter.print(d);
-			printWriter.print(",");
+
 			printWriter.print(e);
-			printWriter.print(",");
+
 			printWriter.print(f);
 			printWriter.print(g);
-			printWriter.print(",");
+
 			printWriter.print(h);
 
 			printWriter.close();
 
 		} catch (IOException e) {
 
-			e.printStackTrace();
 		}
+		sc.close();
 
 	}
 
@@ -122,6 +127,7 @@ public class CSVPerson {
 			default:
 				System.out.println("Enter the wrong input");
 			}
+			sc.close();
 		}
 
 	}

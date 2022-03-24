@@ -3,15 +3,15 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class AddressBookServices {
+public class AddressBookServices15 {
 	/**
 	 * creating person object of contactDetails class
 	 */
-	AddressBookServer person = new AddressBookServer();
+	AddressBookServer15 person = new AddressBookServer15();
 	/**
 	 * Creating a List of ContactDetails using ArrayList
 	 */
-	List<AddressBookServer> contactDetailsList = new ArrayList<>();
+	List<AddressBookServer15> contactDetailsList = new ArrayList<>();
 
 	/**
 	 * Declaring The Add Contact Method And Entering The Contact Details By Using
@@ -73,8 +73,9 @@ public class AddressBookServices {
 		/**
 		 * storing or adding all the contactDetails to the person
 		 */
-		person = new AddressBookServer(firstName, lastName, address, city, state, zipCode, mobileNumber, emailId);
+		person = new AddressBookServer15(firstName, lastName, address, city, state, zipCode, mobileNumber, emailId);
 		contactDetailsList.add(person);
+		scanner.close();
 	}
 
 	/**
@@ -92,13 +93,13 @@ public class AddressBookServices {
 		 * search particular name of a person and the filtered stream is creates a list
 		 * and will collect in a contactDetails using collector
 		 */
-		List<AddressBookServer> collect = contactDetailsList.stream().filter(p -> p.getFirstName().equalsIgnoreCase(name))
+		List<AddressBookServer15> collect = contactDetailsList.stream().filter(p -> p.getFirstName().equalsIgnoreCase(name))
 				.collect(Collectors.toList());
 		/**
 		 * ForEach() method is used and it is a Terminal operations mark the stream as
 		 * consumed, after which point it can no longer be used further.
 		 */
-		for (AddressBookServer contact : collect) {
+		for (AddressBookServer15 contact : collect) {
 			System.out.println("Search result: " + contact);
 		}
 	}
@@ -110,9 +111,9 @@ public class AddressBookServices {
 	 * @param name -passing City name
 	 */
 	public void searchByCity(String city) {
-		List<AddressBookServer> collect = contactDetailsList.stream().filter(p -> p.getCity().equalsIgnoreCase(city))
+		List<AddressBookServer15> collect = contactDetailsList.stream().filter(p -> p.getCity().equalsIgnoreCase(city))
 				.collect(Collectors.toList());
-		for (AddressBookServer contact : collect) {
+		for (AddressBookServer15 contact : collect) {
 			System.out.println("Search result: " + contact);
 		}
 	}
@@ -124,9 +125,9 @@ public class AddressBookServices {
 	 * @param name -passing State name
 	 */
 	public void searchByState(String state) {
-		List<AddressBookServer> collect = contactDetailsList.stream().filter(p -> p.getCity().equalsIgnoreCase(state))
+		List<AddressBookServer15> collect = contactDetailsList.stream().filter(p -> p.getCity().equalsIgnoreCase(state))
 				.collect(Collectors.toList());
-		for (AddressBookServer contact : collect) {
+		for (AddressBookServer15 contact : collect) {
 			System.out.println("Search result: " + contact);
 		}
 	}
@@ -140,7 +141,7 @@ public class AddressBookServices {
 	public void countContactsByUsingCity(String cityName) {
 		long count = 0;
 		long count1 = contactDetailsList.stream().filter(g -> g.getCity().equalsIgnoreCase(cityName)).count();
-		for (AddressBookServer contact : contactDetailsList) {
+		for (AddressBookServer15 contact : contactDetailsList) {
 			count1 = count1 + count;
 		}
 		System.out.println("Contact List :" + count1);
@@ -152,7 +153,7 @@ public class AddressBookServices {
 	 * Stream method
 	 */
 	public void sortByName() {
-		List<AddressBookServer> list = contactDetailsList.stream().collect(Collectors.toList());
+		List<AddressBookServer15> list = contactDetailsList.stream().collect(Collectors.toList());
 		list.stream().sorted((g1, g2) -> ((String) g1.getFirstName()).compareTo(g2.getFirstName()))
 				.forEach(contact -> System.out.println(contact.getFirstName() + " " + contact.getLastName()));
 	}
@@ -161,7 +162,7 @@ public class AddressBookServices {
 	 * Declaring Sort Method Sorting The Details Of Contact By City
 	 */
 	public void sortByCity() {
-		List<AddressBookServer> list = contactDetailsList.stream().collect(Collectors.toList());
+		List<AddressBookServer15> list = contactDetailsList.stream().collect(Collectors.toList());
 		list.stream().sorted((g1, g2) -> ((String) g1.getCity()).compareTo(g2.getCity()))
 				.forEach(contact -> System.out.println(contact.getFirstName() + " " + contact.getLastName()));
 	}
